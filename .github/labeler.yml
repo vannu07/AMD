@@ -1,0 +1,42 @@
+# Labeler configuration for automatic PR labeling
+# See https://github.com/actions/labeler for syntax
+
+# Documentation changes
+documentation:
+  - changed-files:
+    - any-glob-to-any-file: ['**/*.md', 'AUTHORS.md', 'RESULTS.md', 'PROJECT_PLANNING.md']
+
+# GitHub workflows and actions
+github-actions:
+  - changed-files:
+    - any-glob-to-any-file: ['.github/workflows/**']
+
+# Python code changes
+python:
+  - changed-files:
+    - any-glob-to-any-file: ['**/*.py']
+
+# Test changes
+tests:
+  - changed-files:
+    - any-glob-to-any-file: ['**/tests/**', '**/*test*.py']
+
+# API changes
+api:
+  - changed-files:
+    - any-glob-to-any-file: ['**/api/**']
+
+# Machine Learning module changes
+ml-module:
+  - changed-files:
+    - any-glob-to-any-file: ['**/MachineLearningModule/**']
+
+# Feature Extraction module changes
+feature-extraction:
+  - changed-files:
+    - any-glob-to-any-file: ['**/FeatureExtractionModule/**']
+
+# Configuration files
+config:
+  - changed-files:
+    - any-glob-to-any-file: ['**/*.yml', '**/*.yaml', '**/*.json', '.gitignore', '.gitattributes']
