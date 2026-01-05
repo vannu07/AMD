@@ -20,17 +20,17 @@ python:
 # API related changes
 api:
   - changed-files:
-    - any-glob-to-any-file: '**/api/**'
+    - any-glob-to-any-file: '**/ProposedApproach/api/**'
 
 # Machine Learning module changes
 machine-learning:
   - changed-files:
-    - any-glob-to-any-file: '**/MachineLearningModule/**'
+    - any-glob-to-any-file: '**/ProposedApproach/MachineLearningModule/**'
 
 # Feature extraction changes
 feature-extraction:
   - changed-files:
-    - any-glob-to-any-file: '**/FeatureExtractionModule/**'
+    - any-glob-to-any-file: '**/ProposedApproach/FeatureExtractionModule/**'
 
 # Test changes
 tests:
@@ -41,11 +41,11 @@ tests:
 # Scripts and utilities
 scripts:
   - changed-files:
-    - any-glob-to-any-file: '**/scripts/**'
-    - any-glob-to-any-file: '**/Util/**'
+    - any-glob-to-any-file: '**/ProposedApproach/scripts/**'
+    - any-glob-to-any-file: '**/ProposedApproach/Util/**'
 
 # Notebooks
 notebooks:
   - changed-files:
     - any-glob-to-any-file: '**/*.ipynb'
-    - any-glob-to-any-file: '**/notebooks/**'
+    - any-glob-to-any-file: '**/ProposedApproach/notebooks/**'
