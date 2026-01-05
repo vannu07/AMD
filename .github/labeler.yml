@@ -4,7 +4,7 @@
 # Documentation changes
 documentation:
   - changed-files:
-    - any-glob-to-any-file: ['**/*.md', 'AUTHORS.md', 'RESULTS.md', 'PROJECT_PLANNING.md']
+    - any-glob-to-any-file: ['**/*.md']
 
 # GitHub workflows and actions
 github-actions:
@@ -36,7 +36,7 @@ feature-extraction:
   - changed-files:
     - any-glob-to-any-file: ['**/FeatureExtractionModule/**']
 
-# Configuration files
+# Configuration files (excluding GitHub workflows)
 config:
   - changed-files:
-    - any-glob-to-any-file: ['**/*.yml', '**/*.yaml', '**/*.json', '.gitignore', '.gitattributes']
+    - any-glob-to-any-file: ['**/*.json', '.gitignore', '.gitattributes', '**/config/**']
