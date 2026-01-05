@@ -24,17 +24,17 @@ tests:
 # API changes
 api:
   - changed-files:
-    - any-glob-to-any-file: ['**/api/**']
+    - any-glob-to-any-file: ['**/ProposedApproach/api/**']
 
 # Machine Learning module changes
 ml-module:
   - changed-files:
-    - any-glob-to-any-file: ['**/MachineLearningModule/**']
+    - any-glob-to-any-file: ['**/ProposedApproach/MachineLearningModule/**']
 
 # Feature Extraction module changes
 feature-extraction:
   - changed-files:
-    - any-glob-to-any-file: ['**/FeatureExtractionModule/**']
+    - any-glob-to-any-file: ['**/ProposedApproach/FeatureExtractionModule/**']
 
 # Configuration files (excluding GitHub workflows)
 config:
