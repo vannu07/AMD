@@ -1,0 +1,51 @@
+# Configuration for the labeler action
+# This file defines which labels should be automatically applied to pull requests
+# based on the files that are modified.
+
+# Documentation changes
+documentation:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.md'
+
+# GitHub workflows and configuration
+github-actions:
+  - changed-files:
+    - any-glob-to-any-file: '.github/workflows/**'
+
+# Python code changes
+python:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.py'
+
+# API related changes
+api:
+  - changed-files:
+    - any-glob-to-any-file: '**/api/**'
+
+# Machine Learning module changes
+machine-learning:
+  - changed-files:
+    - any-glob-to-any-file: '**/MachineLearningModule/**'
+
+# Feature extraction changes
+feature-extraction:
+  - changed-files:
+    - any-glob-to-any-file: '**/FeatureExtractionModule/**'
+
+# Test changes
+tests:
+  - changed-files:
+    - any-glob-to-any-file: '**/tests/**'
+    - any-glob-to-any-file: '**/*test*.py'
+
+# Scripts and utilities
+scripts:
+  - changed-files:
+    - any-glob-to-any-file: '**/scripts/**'
+    - any-glob-to-any-file: '**/Util/**'
+
+# Notebooks
+notebooks:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.ipynb'
+    - any-glob-to-any-file: '**/notebooks/**'
