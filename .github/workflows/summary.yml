@@ -18,12 +18,62 @@ jobs:
 
       - name: Run AI inference
         id: inference
-        uses: actions/ai-inference@v1
-        with:
-          prompt: |
-            Summarize the following GitHub issue in one paragraph:
-            Title: ${{ github.event.issue.title }}
-            Body: ${{ github.event.issue.body }}
+        run: |
+          python - << 'PY'
+          import json
+          import os
+          import textwrap
+          import urllib.request
+          
+          api_key = os.environ["OPENAI_API_KEY"]
+          issue_title = os.environ.get("ISSUE_TITLE", "")
+          issue_body = os.environ.get("ISSUE_BODY", "")
+          
+          prompt = textwrap.dedent(f"""\
+              Summarize the following GitHub issue in one paragraph:
+              Title: {issue_title}
+              Body: {issue_body}
+          """)
+          
+          data = {
+              "model": "gpt-4o-mini",
+              "messages": [
+                  {
+                      "role": "system",
+                      "content": "You are a helpful assistant that summarizes GitHub issues succinctly."
+                  },
+                  {
+                      "role": "user",
+                      "content": prompt,
+                  },
+              ],
+          }
+          
+          req = urllib.request.Request(
+              "https://api.openai.com/v1/chat/completions",
+              data=json.dumps(data).encode("utf-8"),
+              headers={
+                  "Authorization": f"Bearer {api_key}",
+                  "Content-Type": "application/json",
+              },
+          )
+          
+          with urllib.request.urlopen(req) as resp:
+              body = json.load(resp)
+          
+          summary = body["choices"][0]["message"]["content"].strip()
+          
+          # Expose the summary as a GitHub Actions output named "response"
+          github_output = os.environ["GITHUB_OUTPUT"]
+          with open(github_output, "a", encoding="utf-8") as f:
+              print("response<<EOF", file=f)
+              print(summary, file=f)
+              print("EOF", file=f)
+          PY
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
 
       - name: Comment with AI summary
         run: |
