@@ -1,0 +1,13 @@
+numpy
+pandas
+mlflow
+joblib
+scikit-learn
+imbalanced-learn
+androguard
+fastapi
+pydantic
+fuzzywuzzy
+dagshub
+shap
+matplotlib
