@@ -18,10 +18,10 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: actions/stale@v5
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-issue-message: 'This issue has been automatically marked as stale because there has been no activity for the configured inactivity period. If this issue is still relevant, please add a comment or remove the `no-issue-activity` label to keep it open; otherwise it may be closed by the bot.'
-        stale-pr-message: 'This pull request has been automatically marked as stale because there has been no activity for the configured inactivity period. If this PR is still being worked on or should remain open, please add a comment, push new commits, or remove the `no-pr-activity` label; otherwise it may be closed by the bot.'
-        stale-issue-label: 'no-issue-activity'
-        stale-pr-label: 'no-pr-activity'
+      - uses: actions/stale@v5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: 'Stale issue message'
+          stale-pr-message: 'Stale pull request message'
+          stale-issue-label: 'no-issue-activity'
+          stale-pr-label: 'no-pr-activity'
